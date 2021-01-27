@@ -5,7 +5,7 @@
 <h2>Your Pramatic Cart</h2>
 
 <ul>
-    <% @cart.line_itmes.each do |item| %>
+    <% @cart.line_items.each do |item| %>
         <li><%= item.product.title %></li>
-    end
+    <% end %>
 </ul>
