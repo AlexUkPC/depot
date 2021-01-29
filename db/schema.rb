@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2021_01_29_155608) do
     t.string "email"
     t.string "subject"
     t.string "body"
+    t.string "response"
     t.integer "order_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -4,6 +4,7 @@ class CreateSupportRequests < ActiveRecord::Migration[6.1]
       t.string :email, comment: "Email of the submitter"
       t.string :subject, comment: "Subject of their support email"
       t.string :body, comment: "Body of their support email"
+      t.string :response, comment: "Response", null: true
 
       t.references :order,
         foreign_key: true,
