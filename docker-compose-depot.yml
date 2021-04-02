@@ -27,5 +27,7 @@ services:
     env_file:
       - .env/production/database_depot
       - .env/production/web_depot
+  redis_depot:
+    image: redis
 volumes:
   db_data_depot:

@@ -39,6 +39,8 @@ services:
       - .env/development/database_depot
     volumes: 
       - db_data_depot:/var/lib/postgresql/data
+  redis_depot:
+    image: redis
 volumes: 
   db_data_depot:
   gem_cache_depot:
