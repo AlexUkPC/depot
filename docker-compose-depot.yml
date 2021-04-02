@@ -29,5 +29,6 @@ services:
       - .env/production/web_depot
   redis_depot:
     image: redis
+    restart: always
 volumes:
   db_data_depot:
