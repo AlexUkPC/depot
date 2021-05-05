@@ -11,6 +11,8 @@ services:
       - VIRTUAL_HOST=depot.alexrogna.com
       - VIRTUAL_PORT=3000
       - LETSENCRYPT_HOST=depot.alexrogna.com
+    networks:
+      - proxy
     restart: always
 
   database_depot:
@@ -19,6 +21,8 @@ services:
       - .env/production/database_depot
     volumes:
       - db_data_depot:/var/lib/postgresql/data
+    networks:
+      - proxy
     restart: always
     
   db-migrator_depot:
@@ -27,8 +31,12 @@ services:
     env_file:
       - .env/production/database_depot
       - .env/production/web_depot
+    networks:
+      - proxy
   redis_depot:
     image: redis
     restart: always
+    networks:
+      - proxy
 volumes:
   db_data_depot:

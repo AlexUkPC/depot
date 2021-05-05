@@ -16,6 +16,8 @@ services:
       - .env/development/web_depot
     environment: 
       - WEBPACKER_DEV_SERVER_HOST=webpack_dev_server_depot
+    networks:
+      - network
   webpack_dev_server_depot:
     build:
       context: .
@@ -33,14 +35,22 @@ services:
       - .env/development/web_depot
     environment: 
       - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+    networks:
+      - network
   database_depot:
     image: postgres
     env_file: 
       - .env/development/database_depot
     volumes: 
       - db_data_depot:/var/lib/postgresql/data
+    networks:
+      - network
   redis_depot:
     image: redis
+    networks:
+      - network
 volumes: 
   db_data_depot:
   gem_cache_depot:
+networks:
+  network:
